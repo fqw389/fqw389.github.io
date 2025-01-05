@@ -1,6 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // 返回顶部按钮功能
+    console.log('DOM Content Loaded');
+
     const backToTop = document.getElementById('back-to-top');
+    console.log('Back to top button:', backToTop);
+
+    const announcement = document.getElementById('announcement');
+    console.log('Announcement:', announcement);
 
     // 监听滚动事件
     window.addEventListener('scroll', () => {
@@ -49,4 +54,5 @@ document.addEventListener('DOMContentLoaded', () => {
             localStorage.setItem('announcementLastShown', new Date().getTime().toString());
         }
     });
+});
 
