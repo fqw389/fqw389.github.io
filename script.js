@@ -1,15 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
     console.log('DOM Content Loaded');
 
+    // 返回顶部按钮功能
     const backToTop = document.getElementById('back-to-top');
     console.log('Back to top button:', backToTop);
 
-    const announcement = document.getElementById('announcement');
-    console.log('Announcement:', announcement);
-
     // 监听滚动事件
     window.addEventListener('scroll', () => {
-        // 当页面滚动超过300px时显示按钮
         if (window.scrollY > 300) {
             backToTop.classList.add('show');
         } else {
@@ -26,13 +23,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // 公告弹窗控制
-    const announcement = document.getElementById('announcement');
     const closeBtn = announcement.querySelector('.close-btn');
 
     // 检查上次关闭时间
     const lastShownTime = localStorage.getItem('announcementLastShown');
     const currentTime = new Date().getTime();
-    const twentyFourHours = 24 * 60 * 60 * 1000; // 24小时的毫秒数
+    const twentyFourHours = 24 * 60 * 60 * 1000;
 
     // 如果没有显示记录，或者距离上次显示超过24小时
     if (!lastShownTime || (currentTime - parseInt(lastShownTime)) > twentyFourHours) {
