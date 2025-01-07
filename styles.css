@@ -310,11 +310,10 @@ main {
     transform: scale(0.8);
 }
 
-#back-to-top span {
-    font-size: 1.2em;
+#back-to-top img {
     transition: transform 0.3s ease;
-    display: block;
-    margin-top: -2px;
+    width: 24px;
+    height: 24px;
 }
 
 #back-to-top:hover {
@@ -322,7 +321,7 @@ main {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-#back-to-top:hover span {
+#back-to-top:hover img {
     transform: translateY(-2px);
 }
 
