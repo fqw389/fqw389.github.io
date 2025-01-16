@@ -545,3 +545,58 @@ main {
         bottom: 40px;
     }
 }
+
+.node-info {
+    margin-top: 10px;
+}
+
+.node-toggle {
+    cursor: pointer;
+    color: #666;
+}
+
+.toggle-btn {
+    color: #007bff;
+    text-decoration: underline;
+}
+
+.node-details {
+    margin-top: 8px;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+}
+
+.node-details ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.node-details li {
+    margin: 5px 0;
+}
+
+.node-link {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.node-link a {
+    color: #007bff;
+    text-decoration: none;
+    background: rgba(0, 123, 255, 0.1);
+    padding: 4px 12px;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    font-size: 0.9em;
+    border: 1px solid rgba(0, 123, 255, 0.2);
+}
+
+.node-link a:hover {
+    color: #ffffff;
+    background: #007bff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2);
+}

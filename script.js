@@ -50,5 +50,18 @@ document.addEventListener('DOMContentLoaded', () => {
             localStorage.setItem('announcementLastShown', new Date().getTime().toString());
         }
     });
+
+    // 添加节点信息切换功能
+    const nodeToggle = document.querySelector('.node-toggle');
+    const nodeDetails = document.querySelector('.node-details');
+    const toggleBtn = document.querySelector('.toggle-btn');
+
+    if (nodeToggle && nodeDetails) {
+        nodeToggle.addEventListener('click', function () {
+            const isHidden = nodeDetails.style.display === 'none';
+            nodeDetails.style.display = isHidden ? 'block' : 'none';
+            toggleBtn.textContent = isHidden ? '点击隐藏' : '点击查看';
+        });
+    }
 });
 
