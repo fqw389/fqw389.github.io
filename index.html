@@ -15,31 +15,52 @@
       content="机场收录,低价机场,一元机场,性价比机场,稳定机场,机场推荐"
     />
     <meta name="theme-color" content="#0f172a" />
+    <!-- 如果你有本地favicon请保留，没有可删除 -->
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <title>低价机场收录大全 | 精选优质推荐</title>
-
-    <!-- 引入字体和图标 -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
     <link rel="stylesheet" href="styles.css" />
   </head>
 
   <body>
+    <!-- SVG 图标定义 (无需外链，本地加载) -->
+    <svg style="display: none;">
+      <symbol id="icon-plane" viewBox="0 0 576 512">
+        <path fill="currentColor" d="M482.3 192c34.2 0 93.7 29 93.7 64c0 36-59.5 64-93.7 64l-116.6 0L265.2 495.9c-5.7 10-16.3 16.1-27.8 16.1l-56.2 0c-10.6 0-18.3-10.2-15.4-20.4l49-171.6L112 320 68.8 377.6c-3 4-7.8 6.4-12.8 6.4l-42 0c-7.8 0-14-6.3-14-14c0-1.3 .2-2.6 .5-3.9L32 256 .5 145.9c-.4-1.3-.5-2.6-.5-3.9c0-7.7 6.2-14 14-14l42 0c5 0 9.8 2.4 12.8 6.4L112 192l102.9 0-49-171.6C162.9 10.2 170.6 0 181.2 0l56.2 0c11.5 0 22.1 6.2 27.8 16.1L365.7 192l116.6 0z"/>
+      </symbol>
+      <symbol id="icon-tachometer" viewBox="0 0 640 512">
+        <path fill="currentColor" d="M304 64a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zm0 8c0-2.2-.4-4.3-1.1-6.3l-50.5 168.2c-2.4 8-9.8 13.5-18.1 13.5s-15.7-5.5-18.1-13.5l-50.5-168.2c-.7 2-1.1 4.1-1.1 6.3c0 13.3 10.7 24 24 24l96 0c13.3 0 24-10.7 24-24zm16 48c0 7.2 2.4 13.8 6.4 19.2C305 158.4 278.4 176 248 176c-48.6 0-88-39.4-88-88s39.4-88 88-88c27.6 0 52.1 14.5 67.2 36.4c1.9-1.2 4.1-1.9 6.4-1.9l2.4 0c15.2-25.2 42.7-42.4 74.4-42.4c48.6 0 88 39.4 88 88s-39.4 88-88 88c-29.3 0-55.2-16.5-70.6-40.8c-3.9-5.4-6.4-12-6.4-19.2l0-8.1zM0 96C0 43 43 0 96 0L269.7 0c49.6 0 92.2 28.5 113.5 70.7c18.1-13.8 40.7-22.7 65.3-22.7c52.7 0 96.6 38.6 104.2 89.1C607.5 142.2 640 188.1 640 240c0 58.5-33.4 109.3-82.6 134.1L512 485.3c-6.1 16.3-21.7 26.7-39.1 26.7l-305.9 0c-17.4 0-33-10.4-39.1-26.7L82.6 374.1C33.4 349.3 0 298.5 0 240L0 96zM112 240c0 17.7 14.3 32 32 32l64 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-64 0c-17.7 0-32 14.3-32 32zm272 32l64 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-64 0c-17.7 0-32 14.3-32 32s14.3 32 32 32z"/>
+      </symbol>
+      <symbol id="icon-server" viewBox="0 0 512 512">
+        <path fill="currentColor" d="M64 32C28.7 32 0 60.7 0 96l0 64c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-64c0-35.3-28.7-64-64-64L64 32zm280 72a24 24 0 1 1 0 48 24 24 0 1 1 0-48zm48 24a24 24 0 1 1 48 0 24 24 0 1 1 -48 0zM64 288c-35.3 0-64 28.7-64 64l0 64c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-64c0-35.3-28.7-64-64-64L64 288zm280 72a24 24 0 1 1 0 48 24 24 0 1 1 0-48zm56 24a24 24 0 1 1 48 0 24 24 0 1 1 -48 0z"/>
+      </symbol>
+      <symbol id="icon-bolt" viewBox="0 0 384 512">
+        <path fill="currentColor" d="M0 256L28.5 28c2-16 15.6-28 31.8-28H228.9c15 0 27.1 12.1 27.1 27.1c0 3.2-.6 6.5-1.7 9.5L208 160H347.3c20.2 0 36.7 16.4 36.7 36.7c0 7.4-2.2 14.6-6.4 20.7l-192.2 281c-5.9 8.6-15.6 13.7-25.9 13.7h-2.9c-15.7 0-28.5-12.8-28.5-28.5c0-2.3 .3-4.6 .9-6.9L176 288H32c-17.7 0-32-14.3-32-32z"/>
+      </symbol>
+      <symbol id="icon-clock" viewBox="0 0 512 512">
+        <path fill="currentColor" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/>
+      </symbol>
+      <symbol id="icon-arrow-right" viewBox="0 0 448 512">
+        <path fill="currentColor" d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/>
+      </symbol>
+      <symbol id="icon-warning" viewBox="0 0 576 512">
+        <path fill="currentColor" d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM288 64c67.9 0 123.6 30.7 163.5 67.4c38.5 35.5 65.5 79.2 78.7 108.6c-13.2 29.4-40.2 73.1-78.7 108.6C411.6 385.3 355.9 416 288 416s-123.6-30.7-163.5-67.4c-38.5-35.5-65.5-79.2-78.7-108.6c13.2-29.4 40.2-73.1 78.7-108.6C164.4 94.7 220.1 64 288 64zm0 160a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"/>
+      </symbol>
+      <symbol id="icon-envelope" viewBox="0 0 512 512">
+        <path fill="currentColor" d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48L48 64zM0 176L0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-208L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/>
+      </symbol>
+      <symbol id="icon-arrow-up" viewBox="0 0 384 512">
+        <path fill="currentColor" d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2 160 448c0 17.7 14.3 32 32 32s32-14.3 32-32l0-306.7 105.4 105.4c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z"/>
+      </symbol>
+    </svg>
+
     <!-- 炫酷背景 -->
     <div class="bg-gradient"></div>
     <!-- 加载动画容器 -->
     <div id="preloader">
       <div class="loader-content">
         <div class="plane-animation">
-          <i class="fas fa-plane"></i>
+          <!-- 替换为 SVG 引用 -->
+          <svg class="icon-lg"><use href="#icon-plane"></use></svg>
         </div>
         <div class="loading-text">
           正在规划航线... <span id="progress-text">0%</span>
@@ -73,16 +94,16 @@
           <div class="card-body">
             <div class="grid-info">
               <div class="info-item">
-                <i class="fas fa-tachometer-alt"></i><span>50G 流量</span>
+                <svg class="icon"><use href="#icon-tachometer"></use></svg><span>50G 流量</span>
               </div>
               <div class="info-item">
-                <i class="fas fa-server"></i><span>21个 节点</span>
+                <svg class="icon"><use href="#icon-server"></use></svg><span>21个 节点</span>
               </div>
               <div class="info-item">
-                <i class="fas fa-bolt"></i><span>Shadowsocks</span>
+                <svg class="icon"><use href="#icon-bolt"></use></svg><span>Shadowsocks</span>
               </div>
               <div class="info-item">
-                <i class="fas fa-clock"></i><span>2026-01-04</span>
+                <svg class="icon"><use href="#icon-clock"></use></svg><span>2026-01-04</span>
               </div>
             </div>
             <div class="tags">
@@ -111,16 +132,16 @@
           <div class="card-body">
             <div class="grid-info">
               <div class="info-item">
-                <i class="fas fa-tachometer-alt"></i><span>200G 流量</span>
+                <svg class="icon"><use href="#icon-tachometer"></use></svg><span>200G 流量</span>
               </div>
               <div class="info-item">
-                <i class="fas fa-server"></i><span>19个 节点</span>
+                <svg class="icon"><use href="#icon-server"></use></svg><span>19个 节点</span>
               </div>
               <div class="info-item">
-                <i class="fas fa-bolt"></i><span>SS/HY2</span>
+                <svg class="icon"><use href="#icon-bolt"></use></svg><span>SS/HY2</span>
               </div>
               <div class="info-item">
-                <i class="fas fa-clock"></i><span>2025-11-08</span>
+                <svg class="icon"><use href="#icon-clock"></use></svg><span>2025-11-08</span>
               </div>
             </div>
             <div class="tags"><span>亚洲</span><span>北美洲</span></div>
@@ -130,8 +151,7 @@
               href="https://app.xn--hxt362eqed.com/#/register?code=FjodRuTm"
               target="_blank"
               class="btn"
-              >立即上车 <i class="fas fa-arrow-right"></i
-            ></a>
+              >立即上车 <svg class="icon-sm"><use href="#icon-arrow-right"></use></svg></a>
           </div>
         </div>
 
@@ -147,16 +167,16 @@
           <div class="card-body">
             <div class="grid-info">
               <div class="info-item">
-                <i class="fas fa-tachometer-alt"></i><span>100G 流量</span>
+                <svg class="icon"><use href="#icon-tachometer"></use></svg><span>100G 流量</span>
               </div>
               <div class="info-item">
-                <i class="fas fa-server"></i><span>14个 节点</span>
+                <svg class="icon"><use href="#icon-server"></use></svg><span>14个 节点</span>
               </div>
               <div class="info-item">
-                <i class="fas fa-bolt"></i><span>Vless/Hy2</span>
+                <svg class="icon"><use href="#icon-bolt"></use></svg><span>Vless/Hy2</span>
               </div>
               <div class="info-item">
-                <i class="fas fa-clock"></i><span>2025-05-21</span>
+                <svg class="icon"><use href="#icon-clock"></use></svg><span>2025-05-21</span>
               </div>
             </div>
             <div class="tags"><span>全球覆盖</span><span>多协议</span></div>
@@ -183,16 +203,16 @@
           <div class="card-body">
             <div class="grid-info">
               <div class="info-item">
-                <i class="fas fa-tachometer-alt"></i><span>50G 流量</span>
+                <svg class="icon"><use href="#icon-tachometer"></use></svg><span>50G 流量</span>
               </div>
               <div class="info-item">
-                <i class="fas fa-server"></i><span>22个 节点</span>
+                <svg class="icon"><use href="#icon-server"></use></svg><span>22个 节点</span>
               </div>
               <div class="info-item">
-                <i class="fas fa-bolt"></i><span>Vless/Hy2</span>
+                <svg class="icon"><use href="#icon-bolt"></use></svg><span>Vless/Hy2</span>
               </div>
               <div class="info-item">
-                <i class="fas fa-clock"></i><span>2025-04-21</span>
+                <svg class="icon"><use href="#icon-clock"></use></svg><span>2025-04-21</span>
               </div>
             </div>
             <div class="tags">
@@ -221,16 +241,16 @@
           <div class="card-body">
             <div class="grid-info">
               <div class="info-item">
-                <i class="fas fa-tachometer-alt"></i><span>100G 流量</span>
+                <svg class="icon"><use href="#icon-tachometer"></use></svg><span>100G 流量</span>
               </div>
               <div class="info-item">
-                <i class="fas fa-server"></i><span>30个 节点</span>
+                <svg class="icon"><use href="#icon-server"></use></svg><span>30个 节点</span>
               </div>
               <div class="info-item">
-                <i class="fas fa-bolt"></i><span>Vless/HY2</span>
+                <svg class="icon"><use href="#icon-bolt"></use></svg><span>Vless/HY2</span>
               </div>
               <div class="info-item">
-                <i class="fas fa-clock"></i><span>2025-04-07</span>
+                <svg class="icon"><use href="#icon-clock"></use></svg><span>2025-04-07</span>
               </div>
             </div>
             <div class="tags">
@@ -259,19 +279,19 @@
           <div class="card-body">
             <div class="grid-info">
               <div class="info-item">
-                <i class="fas fa-tachometer-alt"></i><span>1024G 流量</span>
+                <svg class="icon"><use href="#icon-tachometer"></use></svg><span>1024G 流量</span>
               </div>
               <div class="info-item">
-                <i class="fas fa-server"></i><span>22个 节点</span>
+                <svg class="icon"><use href="#icon-server"></use></svg><span>22个 节点</span>
               </div>
               <div class="info-item">
-                <i class="fas fa-bolt"></i><span>Vless/Vmess</span>
+                <svg class="icon"><use href="#icon-bolt"></use></svg><span>Vless/Vmess</span>
               </div>
               <div class="info-item">
-                <i class="fas fa-clock"></i><span>2025-01-02</span>
+                <svg class="icon"><use href="#icon-clock"></use></svg><span>2025-01-02</span>
               </div>
             </div>
-            <div class="tags"><span>下载大流量</div>
+            <div class="tags"><span>下载大流量</span></div>
           </div>
           <div class="card-footer">
             <a
@@ -295,16 +315,16 @@
           <div class="card-body">
             <div class="grid-info">
               <div class="info-item">
-                <i class="fas fa-tachometer-alt"></i><span>100G 流量</span>
+                <svg class="icon"><use href="#icon-tachometer"></use></svg><span>100G 流量</span>
               </div>
               <div class="info-item">
-                <i class="fas fa-server"></i><span>21个 节点</span>
+                <svg class="icon"><use href="#icon-server"></use></svg><span>21个 节点</span>
               </div>
               <div class="info-item">
-                <i class="fas fa-bolt"></i><span>Hysteria2</span>
+                <svg class="icon"><use href="#icon-bolt"></use></svg><span>Hysteria2</span>
               </div>
               <div class="info-item">
-                <i class="fas fa-clock"></i><span>2024-12-28</span>
+                <svg class="icon"><use href="#icon-clock"></use></svg><span>2024-12-28</span>
               </div>
             </div>
             <div class="tags"><span>亚洲</span><span>欧美</span></div>
@@ -331,16 +351,16 @@
           <div class="card-body">
             <div class="grid-info">
               <div class="info-item">
-                <i class="fas fa-tachometer-alt"></i><span>500G 流量</span>
+                <svg class="icon"><use href="#icon-tachometer"></use></svg><span>500G 流量</span>
               </div>
               <div class="info-item">
-                <i class="fas fa-server"></i><span>15个 节点</span>
+                <svg class="icon"><use href="#icon-server"></use></svg><span>15个 节点</span>
               </div>
               <div class="info-item">
-                <i class="fas fa-bolt"></i><span>Shadowsocks</span>
+                <svg class="icon"><use href="#icon-bolt"></use></svg><span>Shadowsocks</span>
               </div>
               <div class="info-item">
-                <i class="fas fa-clock"></i><span>2024-11-28</span>
+                <svg class="icon"><use href="#icon-clock"></use></svg><span>2024-11-28</span>
               </div>
             </div>
             <div class="tags"><span>SS协议</span><span>大流量</span></div>
@@ -367,16 +387,16 @@
           <div class="card-body">
             <div class="grid-info">
               <div class="info-item">
-                <i class="fas fa-tachometer-alt"></i><span>500G 流量</span>
+                <svg class="icon"><use href="#icon-tachometer"></use></svg><span>500G 流量</span>
               </div>
               <div class="info-item">
-                <i class="fas fa-server"></i><span>29个 节点</span>
+                <svg class="icon"><use href="#icon-server"></use></svg><span>29个 节点</span>
               </div>
               <div class="info-item">
-                <i class="fas fa-bolt"></i><span>Vless/Hy2</span>
+                <svg class="icon"><use href="#icon-bolt"></use></svg><span>Vless/Hy2</span>
               </div>
               <div class="info-item">
-                <i class="fas fa-clock"></i><span>2024-11-02</span>
+                <svg class="icon"><use href="#icon-clock"></use></svg><span>2024-11-02</span>
               </div>
             </div>
             <div class="tags"><span>大流量</span><span>全球节点</span></div>
@@ -403,16 +423,16 @@
           <div class="card-body">
             <div class="grid-info">
               <div class="info-item">
-                <i class="fas fa-tachometer-alt"></i><span>100G 流量</span>
+                <svg class="icon"><use href="#icon-tachometer"></use></svg><span>100G 流量</span>
               </div>
               <div class="info-item">
-                <i class="fas fa-server"></i><span>83个 节点</span>
+                <svg class="icon"><use href="#icon-server"></use></svg><span>83个 节点</span>
               </div>
               <div class="info-item">
-                <i class="fas fa-bolt"></i><span>Vless/HY2</span>
+                <svg class="icon"><use href="#icon-bolt"></use></svg><span>Vless/HY2</span>
               </div>
               <div class="info-item">
-                <i class="fas fa-clock"></i><span>2024-10-19</span>
+                <svg class="icon"><use href="#icon-clock"></use></svg><span>2024-10-19</span>
               </div>
             </div>
             <div class="tags"><span>节点多</span><span>全球覆盖</span></div>
@@ -439,16 +459,16 @@
           <div class="card-body">
             <div class="grid-info">
               <div class="info-item">
-                <i class="fas fa-tachometer-alt"></i><span>100G 流量</span>
+                <svg class="icon"><use href="#icon-tachometer"></use></svg><span>100G 流量</span>
               </div>
               <div class="info-item">
-                <i class="fas fa-server"></i><span>31个 节点</span>
+                <svg class="icon"><use href="#icon-server"></use></svg><span>31个 节点</span>
               </div>
               <div class="info-item">
-                <i class="fas fa-bolt"></i><span>Vless/HY2</span>
+                <svg class="icon"><use href="#icon-bolt"></use></svg><span>Vless/HY2</span>
               </div>
               <div class="info-item">
-                <i class="fas fa-clock"></i><span>2024-10-03</span>
+                <svg class="icon"><use href="#icon-clock"></use></svg><span>2024-10-03</span>
               </div>
             </div>
             <div class="tags">
@@ -477,16 +497,16 @@
           <div class="card-body">
             <div class="grid-info">
               <div class="info-item">
-                <i class="fas fa-tachometer-alt"></i><span>100G 流量</span>
+                <svg class="icon"><use href="#icon-tachometer"></use></svg><span>100G 流量</span>
               </div>
               <div class="info-item">
-                <i class="fas fa-server"></i><span>56个 节点</span>
+                <svg class="icon"><use href="#icon-server"></use></svg><span>56个 节点</span>
               </div>
               <div class="info-item">
-                <i class="fas fa-bolt"></i><span>Vless/HY2</span>
+                <svg class="icon"><use href="#icon-bolt"></use></svg><span>Vless/HY2</span>
               </div>
               <div class="info-item">
-                <i class="fas fa-clock"></i><span>2024-09-28</span>
+                <svg class="icon"><use href="#icon-clock"></use></svg><span>2024-09-28</span>
               </div>
             </div>
             <div class="tags"><span>节点多</span><span>全球覆盖</span></div>
@@ -513,16 +533,16 @@
           <div class="card-body">
             <div class="grid-info">
               <div class="info-item">
-                <i class="fas fa-tachometer-alt"></i><span>300G 流量</span>
+                <svg class="icon"><use href="#icon-tachometer"></use></svg><span>300G 流量</span>
               </div>
               <div class="info-item">
-                <i class="fas fa-server"></i><span>29个 节点</span>
+                <svg class="icon"><use href="#icon-server"></use></svg><span>29个 节点</span>
               </div>
               <div class="info-item">
-                <i class="fas fa-bolt"></i><span>SS/Vmess</span>
+                <svg class="icon"><use href="#icon-bolt"></use></svg><span>SS/Vmess</span>
               </div>
               <div class="info-item">
-                <i class="fas fa-clock"></i><span>2024-08-01</span>
+                <svg class="icon"><use href="#icon-clock"></use></svg><span>2024-08-01</span>
               </div>
             </div>
             <div class="tags"><span>SS/Vmess</span><span>全球覆盖</span></div>
@@ -549,16 +569,16 @@
           <div class="card-body">
             <div class="grid-info">
               <div class="info-item">
-                <i class="fas fa-tachometer-alt"></i><span>388G 流量</span>
+                <svg class="icon"><use href="#icon-tachometer"></use></svg><span>388G 流量</span>
               </div>
               <div class="info-item">
-                <i class="fas fa-server"></i><span>19个 节点</span>
+                <svg class="icon"><use href="#icon-server"></use></svg><span>19个 节点</span>
               </div>
               <div class="info-item">
-                <i class="fas fa-bolt"></i><span>Vless</span>
+                <svg class="icon"><use href="#icon-bolt"></use></svg><span>Vless</span>
               </div>
               <div class="info-item">
-                <i class="fas fa-clock"></i><span>2024-08-01</span>
+                <svg class="icon"><use href="#icon-clock"></use></svg><span>2024-08-01</span>
               </div>
             </div>
             <div class="tags"><span>亚洲</span><span>北美</span></div>
@@ -585,16 +605,16 @@
           <div class="card-body">
             <div class="grid-info">
               <div class="info-item">
-                <i class="fas fa-tachometer-alt"></i><span>200G 流量</span>
+                <svg class="icon"><use href="#icon-tachometer"></use></svg><span>200G 流量</span>
               </div>
               <div class="info-item">
-                <i class="fas fa-server"></i><span>26个 节点</span>
+                <svg class="icon"><use href="#icon-server"></use></svg><span>26个 节点</span>
               </div>
               <div class="info-item">
-                <i class="fas fa-bolt"></i><span>多协议</span>
+                <svg class="icon"><use href="#icon-bolt"></use></svg><span>多协议</span>
               </div>
               <div class="info-item">
-                <i class="fas fa-clock"></i><span>2024-08-01</span>
+                <svg class="icon"><use href="#icon-clock"></use></svg><span>2024-08-01</span>
               </div>
             </div>
             <div class="tags"><span>全球覆盖</span></div>
@@ -614,10 +634,7 @@
     <footer>
       <div class="footer-content">
         <div class="disclaimer">
-          <i
-            class="fas fa-exclamation-triangle"
-            style="font-size: 1.5rem; color: #fca5a5"
-          ></i>
+          <svg class="icon-lg" style="color: #fca5a5"><use href="#icon-warning"></use></svg>
           <p>
             <b>温馨提示：</b
             >本人只收录一些低价机场以供大家使用。对于机场跑路、节点失效、卡顿等问题，本人概不负责！请理性消费。
@@ -625,22 +642,18 @@
         </div>
         <div class="footer-links">
           <a href="mailto:1@101079.xyz"
-            ><i class="fas fa-envelope"></i> 反馈邮箱</a
+            ><svg class="icon"><use href="#icon-envelope"></use></svg> 反馈邮箱</a
           >
-          <span
-            ><i class="fas fa-eye"></i> 访问量
-            <span id="busuanzi_value_site_pv">...</span></span
-          >
+          <!-- 访问量统计已移除 -->
         </div>
         <p class="copyright">© 2026 机场收录大全</p>
       </div>
     </footer>
 
     <button id="back-to-top" title="返回顶部">
-      <i class="fas fa-arrow-up"></i>
+      <svg class="icon"><use href="#icon-arrow-up"></use></svg>
     </button>
 
     <script src="script.js"></script>
-    <script async src="busuanzi.js"></script>
   </body>
 </html>
