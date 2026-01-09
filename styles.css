@@ -8,7 +8,8 @@
   --text-main: #f8fafc;
   --text-muted: #94a3b8;
   --glow: rgba(99, 102, 241, 0.4);
-  --font-main: "Inter", "Noto Sans SC", sans-serif;
+  /* 使用系统默认字体，加载速度最快 */
+  --font-main: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
 * {
@@ -25,6 +26,29 @@ body {
   line-height: 1.6;
   overflow-x: hidden;
   min-height: 100vh;
+}
+
+/* SVG 图标通用样式 */
+.icon {
+  width: 1em;
+  height: 1em;
+  fill: currentColor;
+  display: inline-block;
+  vertical-align: -0.125em;
+  margin-right: 6px;
+}
+
+.icon-lg {
+  width: 1.5em;
+  height: 1.5em;
+  fill: currentColor;
+}
+
+.icon-sm {
+  width: 0.8em;
+  height: 0.8em;
+  margin-left: 8px;
+  margin-right: 0;
 }
 
 /* 动态背景 */
@@ -189,10 +213,8 @@ header p {
   color: var(--text-muted);
 }
 
-.info-item i {
-  width: 18px;
+.info-item .icon {
   color: var(--accent);
-  margin-right: 6px;
   opacity: 0.8;
 }
 
@@ -230,9 +252,7 @@ header p {
   font-size: 0.95rem;
 }
 
-.btn i {
-  margin-left: 8px;
-  font-size: 0.8rem;
+.btn .icon-sm {
   transition: transform 0.3s ease;
 }
 
@@ -242,7 +262,7 @@ header p {
   box-shadow: 0 0 20px var(--glow);
 }
 
-.btn:hover i {
+.btn:hover .icon-sm {
   transform: translateX(4px);
 }
 
@@ -342,6 +362,10 @@ footer {
   font-size: 1.2rem;
 }
 
+#back-to-top .icon {
+    margin-right: 0;
+}
+
 #back-to-top.visible {
   opacity: 1;
   visibility: visible;
@@ -428,11 +452,17 @@ footer {
 .plane-animation {
   font-size: 3rem;
   margin-bottom: 20px;
-  background: linear-gradient(135deg, var(--primary), var(--accent));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--primary); /* SVG 使用 currentColor */
   animation: pulse-fly 2s infinite ease-in-out;
 }
+
+.plane-animation .icon-lg {
+    width: 1em; /* 在这里使用font-size控制大小 */
+    height: 1em;
+    /* 渐变色文字效果对SVG fill不直接生效，这里使用单色或SVG渐变定义，为了简单使用主色调 */
+    fill: var(--primary);
+}
+
 
 @keyframes pulse-fly {
   0% {
