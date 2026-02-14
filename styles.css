@@ -9,7 +9,9 @@
   --text-muted: #94a3b8;
   --glow: rgba(99, 102, 241, 0.4);
   /* 使用系统默认字体，加载速度最快 */
-  --font-main: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-main: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Noto Color Emoji";
 }
 
 * {
@@ -363,7 +365,7 @@ footer {
 }
 
 #back-to-top .icon {
-    margin-right: 0;
+  margin-right: 0;
 }
 
 #back-to-top.visible {
@@ -457,12 +459,11 @@ footer {
 }
 
 .plane-animation .icon-lg {
-    width: 1em; /* 在这里使用font-size控制大小 */
-    height: 1em;
-    /* 渐变色文字效果对SVG fill不直接生效，这里使用单色或SVG渐变定义，为了简单使用主色调 */
-    fill: var(--primary);
+  width: 1em; /* 在这里使用font-size控制大小 */
+  height: 1em;
+  /* 渐变色文字效果对SVG fill不直接生效，这里使用单色或SVG渐变定义，为了简单使用主色调 */
+  fill: var(--primary);
 }
-
 
 @keyframes pulse-fly {
   0% {
@@ -530,5 +531,48 @@ footer {
   }
   100% {
     background-position: 0 0;
+  }
+}
+/* ...原有样式保持不变，在文件最后添加以下内容... */
+
+/* 刷新提示弹窗 Toast */
+.refresh-toast {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-100px); /* 初始状态向上隐藏 */
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid var(--primary);
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 50px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 10000;
+  opacity: 0;
+  transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55); /* 弹性动画 */
+  backdrop-filter: blur(10px);
+}
+
+.refresh-toast.show {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+}
+
+.refresh-toast .icon {
+  color: var(--accent);
+  margin-right: 0;
+  font-size: 1.2em;
+}
+
+/* 适配移动端位置，避免遮挡 */
+@media (max-width: 768px) {
+  .refresh-toast {
+    top: 15px;
+    width: 90%;
+    justify-content: center;
+    font-size: 0.9rem;
   }
 }
